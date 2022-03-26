@@ -1,0 +1,45 @@
+*{
+    margin :0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.container{
+   position: absolute;
+   left :50%;
+   right : 50%;
+   top : 50%;
+   transform: translate(-50%,-50%);
+   perspective: 1000px;  /*원근감이 느껴지게 만든다. 3D처럼 보이게. 작아질수록 원근감이 더 극적으로 보이게 된다.*/
+}
+
+.flip-btn{
+    width: 200px;
+    height: 100px;
+    color:white;
+    text-align: center;
+    line-height: 100px; /*요소의 height값과 line-height 값이 같으면 수직 중앙 정렬된다 단 텍스트가 한 줄일 경우에만 적용된다*/
+    transform-style: preserve-3d; /*flip-btn 하위의 클래스들이 3d공간에 배치가 된다*/
+    transition:.5s;  /*이거 없으면 움직이는 느낌없음 그냥 커서 갔다대면 글자랑 색만 바뀜*/
+    cursor: pointer; /*커서를 손가락 모양으로 바꾸어줌*/
+}
+
+.flip-btn:hover{
+    transform: rotateX(-90deg);
+}
+
+.front{
+    background-color:goldenrod;
+    height: 100px;
+    transform: translateZ(50px);
+}
+
+.back{
+    background-color: darkgoldenrod;
+    height: 100px;
+    transform: rotateX(90deg) /*각도*/ translateZ(150PX); /*위 아래로 움직인다*/
+}
